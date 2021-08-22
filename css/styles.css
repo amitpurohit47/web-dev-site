@@ -2,6 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
 
 @font-face {
+  font-family: 'AI';
+  src: url(../assets/Fonts/BlackthornsDemoRegular-X0MZ.ttf);
+}
+
+@font-face {
   font-family: MontserratLight;
   src: url(../assets/Fonts/Montserrat/Montserrat-Light.ttf);
 }
@@ -122,7 +127,8 @@
   height: 100vh;
   position: relative;
   z-index: 0;
-  background-image: url("../assets/Images/landing.jpg");
+  background-image: url("../assets/Images/landing1.jpg");
+  background-position-x: center;
   background-size: cover;
 }
 
@@ -132,18 +138,31 @@
   display: flex;
   align-items: center;
   background: rgba(0, 0, 0, 0.6);
+  position: relative;
 }
 
 .landing-content-inner {
-  margin-bottom: -130px;
+  position: absolute;
+  bottom: 30px;
 }
 
 .landing-content p {
   color: white;
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 5rem;
+  font-family: 'AI';
+  font-size: 3rem;
   margin-left: 40px;
-  animation: fadeUp 1000ms ease-in-out;
+  animation: flipText 1500ms ease-in-out;
+  transform-origin: top;
+}
+
+.landing-content span{
+  color: white;
+  font-family: 'AI';
+  font-size: 1rem;
+  margin-left: 40px;
+  animation-delay: 2s;
+  animation: flipText 1500ms ease-in-out;
+  transform-origin: top;
 }
 
 .about {
@@ -174,23 +193,36 @@
 .custom {
   height: 100vh;
   width: 100%;
-  background-image: url(../assets/Images/custom.jpg);
+  background-image: url(../assets/Images/custom2.jpg);
   background-size: 200%;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   position: relative;
+  backdrop-filter: brightness(60%);
+}
+
+.custom-container{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 0;
 }
 
 .custom-content {
   position: absolute;
   bottom: 30px;
   left: 40px;
+  z-index: 1;
 }
 
 .custom-content p {
   font-family: "Prata", serif;
   font-size: 3rem;
+  color: white;
 }
 
 .services {
@@ -198,6 +230,11 @@
   flex-flow: column;
   align-items: center;
   justify-content: center;
+}
+
+.service{
+  margin: 0 15px;
+  background-color: white;
 }
 
 .services h2 {
@@ -210,20 +247,62 @@
 
 .services-row {
   display: flex;
-  width: 60%;
+  width: 100%;
   margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
 .service-header {
   display: flex;
+  flex-flow: column;
+  justify-content: center;
   align-items: center;
   margin-bottom: 10px;
+  width: 350px;
+  height: 200px;
+  border: 3px solid #555;
+  background-color: white;
+  z-index: 0;
+  position: relative;
+}
+
+.service-header::after,.service-header::before{
+  position: absolute;
+  background: white;
+  z-index: -1;
+  transition: 1s;
+  content: '';
+}
+
+.service-header::before{
+  height: 200px;
+  width: 330px;
+}
+.service-header::after{
+  height: 180px;
+  width: 350px;
+}
+
+.service-header:hover::before{
+  width: 0;
+}
+
+.service-header:hover::after{
+  height: 0;
+}
+
+.service-header img{
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
 }
 
 .service-header p {
   font-family: MontserratMedium;
-  font-size: 1.6rem;
-  margin-left: 20px;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #410b74;
 }
 
 .service-content {
@@ -344,15 +423,44 @@
 }
 
 .tech {
-  width: 25%;
+  width: 300px;
   height: 100px;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-image: url("../assets/Images/reactjs-icon.svg");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
   border: 1px solid #ccc;
+  position: relative;
+  padding: 10px;
+  display: grid;
+  place-items: center;
+  background-color: #410b74;
+  margin: 0 10px;
+}
+
+.tech img{
+  position: absolute;
+  animation: fadeInOut 9s infinite;
+  opacity: 0;
+  max-height: 60px;
+}
+
+.tech img:nth-child(2){
+  animation-delay: 3s;
+}
+
+.tech img:nth-child(3){
+  animation-delay: 6s;
+}
+
+@keyframes fadeInOut {
+  10% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
 }
 
 .footer {
@@ -520,6 +628,59 @@
   display: flex;
 }
 
+.clients{
+  margin: 30px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+
+.clients h2{
+  font-family: MontserratMedium;
+  font-weight: 700;
+  font-size: 3rem;
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.clients-track{
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 0;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.clients-track img{
+  margin: 20px;
+  /* animation: scroll 2s linear infinite; */
+  width: 150px;
+}
+
+@keyframes flipText {
+  0%{
+    transform: rotateX(-90deg);
+    opacity: 0;
+  }100%{
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes scroll {
+  0%{
+    transform: translateX(0);
+  }100%{
+    transform: translateX(-100%);
+  }
+}
+
 @keyframes fadeUp {
   0% {
     transform: translateY(50px);
@@ -531,6 +692,41 @@
   }
 }
 
+@media (max-width: 1200px){
+  .service-header {
+    width: 300px;
+    height: 200px;
+  }
+
+  .service-header::before{
+    height: 200px;
+    width: 280px;
+  }
+  .service-header::after{
+    height: 180px;
+    width: 300px;
+  }
+  
+  .service-header img{
+    width: 100px;
+    height: 100px;
+  }
+  
+  .service-header p {
+    font-size: 1.3rem;
+  }
+
+  .tech img{
+    max-height: 30px;
+    max-width: 280px;
+  }
+
+  #tailwind{
+    max-width: 200px;
+  }
+
+}
+
 @media (max-width: 1000px) {
   .nav-items {
     display: none;
@@ -539,10 +735,10 @@
     display: block;
   }
   .landing-content-inner {
-    margin-bottom: -250px;
+    bottom: 30px;
   }
   .landing-content-inner p {
-    font-size: 3rem;
+    font-size: 2rem;
   }
   .about h2 {
     width: 90%;
@@ -587,9 +783,43 @@
   .contact p{
     font-size: 1.2rem;
   }
+  .service-header {
+    width: 200px;
+    height: 150px;
+  }
+
+  .service-header::before{
+    height: 150px;
+    width: 180px;
+  }
+  .service-header::after{
+    height: 130px;
+    width: 200px;
+  }
+  
+  .service-header img{
+    width: 60px;
+    height: 60px;
+  }
+  
+  .service-header p {
+    font-size: 0.8rem;
+  }
+
+
+  #tailwind{
+    max-width: 150px;
+  }
 }
 
 @media (max-width: 720px) {
+  .landing-content-inner p{
+    font-size: 1.5rem;
+  }
+
+  .landing-content-inner span{
+    font-size: 0.8rem;
+  }
     .footer{
         padding: 30px;
     }
@@ -612,11 +842,57 @@
     .service{
         margin-bottom: 20px;
     }
+    .service-header {
+      width: 300px;
+      height: 200px;
+    }
+  
+    .service-header::before{
+      height: 200px;
+      width: 280px;
+    }
+    .service-header::after{
+      height: 180px;
+      width: 300px;
+    }
+    
+    .service-header img{
+      width: 100px;
+      height: 100px;
+    }
+    
+    .service-header p {
+      font-size: 1.1rem;
+    }
+    .service{
+      margin: 15px 0;
+    }
+
+    .techs-row{
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .tech{
+      width: 300px;
+      margin-bottom: 20px;
+    }
+
+    .tech img{
+      max-height: 60px;
+    }
+
+    #tailwind{
+      max-width: 300px;
+    }
 }
 
 @media (max-width:500px){
-    .about h2,.services h2,.works h2,.techs h2{
+    .about h2,.services h2,.works h2,.techs h2,.clients h2{
         font-size: 2.5rem;
+        margin-bottom: 25px;
     }
     .about h2{
         width: 95%;
@@ -641,7 +917,10 @@
         right: 10px;
     }
     .landing-content-inner p{
-        font-size: 2.5rem;
+        font-size: 1rem;
+    }
+    .landing-content-inner span{
+      font-size: 0.6rem;
     }
     .footer-main{
         flex-flow: column;
@@ -682,7 +961,7 @@
         margin-bottom: 0;
     }
     .tech{
-        width: 80%;
+        width: 300px;
         margin-bottom: 15px;
     }
     .service-header p{
