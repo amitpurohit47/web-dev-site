@@ -7,17 +7,32 @@ const span = ham.querySelectorAll("span");
 const links = mobileMenu.querySelectorAll(".nav-item");
 const home = document.getElementById("home");
 const about = document.getElementById("about");
-const service = document.getElementById("service");
-const client = document.getElementById("client");
+const service = document.getElementById("services");
+const client = document.getElementById("clients");
 const footer = document.getElementById("footer");
 
 let mobileMenuOpen = false;
 
 const changeNav = (e) => {
-  const links = navbar.querySelectorAll('a');
+  const links = navbar.querySelectorAll('.nav-item');
+  const links2 = mobileMenu.querySelectorAll('.nav-item');
   links.forEach(link => link.style.color = 'white');
-  if(window.pageYOffset>=0 && window.pageYOffset<about.offsetTop){
-    links[0].style.color = '#410b74';
+  links2.forEach(link => link.style.color = 'white');
+  if(window.pageYOffset>=0 && window.pageYOffset+100<about.offsetTop){
+    links[0].style.color = '#b88ae4';
+    links2[0].style.color = '#b88ae4';
+  }else if(window.pageYOffset+100>=about.offsetTop && window.pageYOffset+100<service.offsetTop){
+    links[1].style.color = '#b88ae4';
+    links2[1].style.color = '#b88ae4';
+  }else if(window.pageYOffset+100>=service.offsetTop && window.pageYOffset+100<client.offsetTop){
+    links[2].style.color = '#b88ae4';
+    links2[2].style.color = '#b88ae4';
+  }else if(window.pageYOffset+100>=client.offsetTop && window.pageYOffset+100<footer.offsetTop){
+    links[3].style.color = '#b88ae4';
+    links2[3].style.color = '#b88ae4';
+  }else{
+    links[4].style.color = '#b88ae4';
+    links2[4].style.color = '#b88ae4';
   }
 };
 
@@ -75,6 +90,7 @@ const toggleMobileMenu2 = (e, name) => {
   mobileMenuOpen = !mobileMenuOpen;
 };
 
+window.addEventListener("scroll", changeNav);
 window.addEventListener("scroll", handleLandingParallax);
 window.addEventListener("scroll", handleNav);
 window.addEventListener("scroll", handleCustom);

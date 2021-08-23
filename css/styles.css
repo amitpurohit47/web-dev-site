@@ -38,6 +38,10 @@
   text-decoration: none;
 }
 
+.nav-bar a:first-child .nav-item{
+  color: rgb(184, 138, 228);
+}
+
 .logo {
   flex: 1;
 }
