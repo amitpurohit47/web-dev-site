@@ -69,7 +69,9 @@
     <script>
       function removeloader(){
         const loader = document.getElementById('loader');
-        loader.style.display = 'none';
+        setTimeout(()=>{
+          loader.style.display = 'none';
+        },3000);
       }
     </script>
     <div class="main">
@@ -139,7 +141,7 @@
         </div>
       </nav>
       <div class="landing-page" id="home">
-        <video src="./assets/Images/landingvid.mp4" autoplay muted preload loop></video>
+        <video src="./assets/Images/landingvid2.mp4" autoplay muted preload loop></video>
         <div class="landing-content">
           <div class="landing-content-inner">
             <p>Our intelligence is what makes us human,</p>
