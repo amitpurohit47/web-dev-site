@@ -7,9 +7,85 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/styles.css" />
     <title>Loren</title>
+    <style>
+      .loader-container{
+        display: grid;
+        place-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #2a2a2e;
+        z-index: 999;
+      }
+      .loader {
+        position: relative;
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-gap: 2px;
+        width: 100px;
+        height: 100px;
+      }
+      .loader > div {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: #b88ae4;
+        transform: scale(0);
+        transform-origin: center center;
+        animation: loader 2s infinite linear;
+      }
+      .loader > div:nth-of-type(1), .loader > div:nth-of-type(5), .loader > div:nth-of-type(9) {
+        animation-delay: 0.4s;
+      }
+      .loader > div:nth-of-type(4), .loader > div:nth-of-type(8) {
+        animation-delay: 0.2s;
+      }
+      .loader > div:nth-of-type(2), .loader > div:nth-of-type(6) {
+        animation-delay: 0.6s;
+      }
+      .loader > div:nth-of-type(3) {
+        animation-delay: 0.8s;
+      }
+
+      @keyframes loader {
+        0% {
+          transform: scale(0);
+        }
+        40% {
+          transform: scale(1);
+        }
+        80% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(0);
+        }
+      }
+    </style>
   </head>
-  <body>
+  <body onload="removeloader()">
+    <script>
+      function removeloader(){
+        const loader = document.getElementById('loader');
+        loader.style.display = 'none';
+      }
+    </script>
     <div class="main">
+      <div class="loader-container" id="loader">
+        <div class="loader">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
       <div class="mobile-menu">
         <a href="#home" data-aos="fade-left">
           <div class="nav-item" data-name="home">Home</div>
@@ -63,6 +139,7 @@
         </div>
       </nav>
       <div class="landing-page" id="home">
+        <video src="./assets/Images/landingvid.mp4" autoplay muted preload loop></video>
         <div class="landing-content">
           <div class="landing-content-inner">
             <p>Our intelligence is what makes us human,</p>
@@ -79,16 +156,20 @@
         data-aos-delay="100"
       >
         <h2>About Us</h2>
-        <p>
-          AIBILITY is a tech startup consisting of passionate software
-          developers. We aim to provide highly scalable softwares. We supply
-          complete end-to-end solutions for your business to grow exponentially.
-          Our mission is to equip your business with the latest technological
-          stack for its augmentation.We are focused on developing powerful and
-          cutting edge applications, that allow us to offer solutions which
-          provide real business benefits. We deliver products and services with
-          quantifiable ROI built around customer's goals and strategic vision.
-        </p>
+        <div class="about-inner">
+          <p>
+            AIBILITY is a tech startup consisting of passionate software
+            developers. We aim to provide highly scalable softwares. We supply
+            complete end-to-end solutions for your business to grow
+            exponentially. Our mission is to equip your business with the latest
+            technological stack for its augmentation.We are focused on
+            developing powerful and cutting edge applications, that allow us to
+            offer solutions which provide real business benefits. We deliver
+            products and services with quantifiable ROI built around customer's
+            goals and strategic vision.
+          </p>
+          <img src="./assets/Images/about.jpg" alt="about" />
+        </div>
       </div>
       <div class="custom">
         <div class="custom-container">
@@ -377,37 +458,37 @@
         <!-- Techs row starts -->
         <div class="techs-row" data-aos="fade-up" data-aos-delay="100">
           <div class="tech">
-            <img src="./assets/Images/angular.png" alt="img">
-            <img src="./assets/Images/reactjs-icon.svg" alt="img">
-            <img src="./assets/Images/python.png" alt="img">
+            <img src="./assets/Images/angular.png" alt="img" />
+            <img src="./assets/Images/reactjs-icon.svg" alt="img" />
+            <img src="./assets/Images/python.png" alt="img" />
           </div>
           <div class="tech">
-            <img src="./assets/Images/js.png" alt="img">
-            <img src="./assets/Images/netlify.png" alt="img">
-            <img src="./assets/Images/do.png" alt="img">
+            <img src="./assets/Images/js.png" alt="img" />
+            <img src="./assets/Images/netlify.png" alt="img" />
+            <img src="./assets/Images/do.png" alt="img" />
           </div>
           <div class="tech">
-            <img src="./assets/Images/ts.png" alt="img">
-            <img src="./assets/Images/node.png" alt="img">
-            <img src="./assets/Images/github.png" alt="img">
+            <img src="./assets/Images/ts.png" alt="img" />
+            <img src="./assets/Images/node.png" alt="img" />
+            <img src="./assets/Images/github.png" alt="img" />
           </div>
         </div>
         <!-- Techs row starts -->
         <div class="techs-row" data-aos="fade-up" data-aos-delay="200">
           <div class="tech">
-            <img src="./assets/Images/mongo.png" alt="img">
-            <img src="./assets/Images/postman.png" alt="img">
-            <img src="./assets/Images/gitlab.png" alt="img">
+            <img src="./assets/Images/mongo.png" alt="img" />
+            <img src="./assets/Images/postman.png" alt="img" />
+            <img src="./assets/Images/gitlab.png" alt="img" />
           </div>
           <div class="tech">
-            <img src="./assets/Images/sass.png" alt="img">
-            <img src="./assets/Images/tailwind.png" alt="img" id="tailwind">
-            <img src="./assets/Images/ubuntu.png" alt="img">
+            <img src="./assets/Images/sass.png" alt="img" />
+            <img src="./assets/Images/tailwind.png" alt="img" id="tailwind" />
+            <img src="./assets/Images/ubuntu.png" alt="img" />
           </div>
           <div class="tech">
-            <img src="./assets/Images/vue.png" alt="img">
-            <img src="./assets/Images/capacitor.png" alt="img">
-            <img src="./assets/Images/express.png" alt="img">
+            <img src="./assets/Images/vue.png" alt="img" />
+            <img src="./assets/Images/capacitor.png" alt="img" />
+            <img src="./assets/Images/express.png" alt="img" />
           </div>
         </div>
       </div>
@@ -474,7 +555,12 @@
         </div>
         <div class="contact-form">
           <h2>Send us a Query</h2>
-          <form class="form-main">
+          <form 
+            class="form-main" 
+            action="mailto:amitpurohit4747@gmail.com" 
+            method="POST" 
+            enctype=”multipart/form-data” 
+          >
             <input
               type="text"
               name="name"
@@ -494,6 +580,7 @@
       </div>
       <p class="copyright">&copy; 2021</p>
     </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
