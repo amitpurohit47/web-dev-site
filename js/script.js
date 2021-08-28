@@ -1,5 +1,7 @@
 const parallaxLanding = document.querySelector(".landing-page");
 const navbar = document.querySelector(".nav-bar");
+const navitems = navbar.querySelector('.nav-items');
+const spans = navitems.querySelectorAll('span');
 const custom = document.querySelector(".custom");
 const mobileMenu = document.querySelector(".mobile-menu");
 const ham = document.querySelector(".hamburger");
@@ -14,23 +16,30 @@ const footer = document.getElementById("footer");
 let mobileMenuOpen = false;
 
 const changeNav = (e) => {
+  console.log(spans);
   const links = navbar.querySelectorAll('.nav-item');
   const links2 = mobileMenu.querySelectorAll('.nav-item');
   links.forEach(link => link.style.color = 'white');
   links2.forEach(link => link.style.color = 'white');
+  spans.forEach(span => span.style.width = '0');
   if(window.pageYOffset>=0 && window.pageYOffset+100<about.offsetTop){
+    spans[0].style.width = '100%';
     links[0].style.color = '#b88ae4';
     links2[0].style.color = '#b88ae4';
   }else if(window.pageYOffset+100>=about.offsetTop && window.pageYOffset+100<service.offsetTop){
+    spans[1].style.width = '100%';
     links[1].style.color = '#b88ae4';
     links2[1].style.color = '#b88ae4';
   }else if(window.pageYOffset+100>=service.offsetTop && window.pageYOffset+100<client.offsetTop){
+    spans[2].style.width = '100%';
     links[2].style.color = '#b88ae4';
     links2[2].style.color = '#b88ae4';
   }else if(window.pageYOffset+100>=client.offsetTop && window.pageYOffset+100<footer.offsetTop){
+    spans[3].style.width = '100%';
     links[3].style.color = '#b88ae4';
     links2[3].style.color = '#b88ae4';
   }else{
+    spans[4].style.width = '100%';
     links[4].style.color = '#b88ae4';
     links2[4].style.color = '#b88ae4';
   }
