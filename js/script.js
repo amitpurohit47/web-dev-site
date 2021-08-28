@@ -22,19 +22,19 @@ const changeNav = (e) => {
   links.forEach(link => link.style.color = 'white');
   links2.forEach(link => link.style.color = 'white');
   spans.forEach(span => span.style.width = '0');
-  if(window.pageYOffset>=0 && window.pageYOffset+100<about.offsetTop){
+  if(window.pageYOffset>=0 && window.pageYOffset+200<about.offsetTop){
     spans[0].style.width = '100%';
     links[0].style.color = '#b88ae4';
     links2[0].style.color = '#b88ae4';
-  }else if(window.pageYOffset+100>=about.offsetTop && window.pageYOffset+100<service.offsetTop){
+  }else if(window.pageYOffset+200>=about.offsetTop && window.pageYOffset+200<service.offsetTop){
     spans[1].style.width = '100%';
     links[1].style.color = '#b88ae4';
     links2[1].style.color = '#b88ae4';
-  }else if(window.pageYOffset+100>=service.offsetTop && window.pageYOffset+100<client.offsetTop){
+  }else if(window.pageYOffset+200>=service.offsetTop && window.pageYOffset+200<client.offsetTop){
     spans[2].style.width = '100%';
     links[2].style.color = '#b88ae4';
     links2[2].style.color = '#b88ae4';
-  }else if(window.pageYOffset+100>=client.offsetTop && window.pageYOffset+100<footer.offsetTop){
+  }else if(window.pageYOffset+200>=client.offsetTop && window.pageYOffset+200<footer.offsetTop){
     spans[3].style.width = '100%';
     links[3].style.color = '#b88ae4';
     links2[3].style.color = '#b88ae4';
@@ -52,9 +52,9 @@ const handleLandingParallax = (e) => {
 
 const handleNav = (e) => {
   let offset = window.pageYOffset;
-  if (offset + 80 < window.innerHeight) {
+  if (offset + 280 < window.innerHeight) {
     navbar.style.backgroundColor = "transparent";
-  } else if (offset + 80 >= window.innerHeight) {
+  } else if (offset + 280 >= window.innerHeight) {
     navbar.style.backgroundColor = "#222";
   }
 };

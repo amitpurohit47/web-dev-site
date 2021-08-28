@@ -2,6 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
 
 @font-face {
+  font-family: "Arial";
+  src: url('../assets/Fonts/Montserrat/arial-black.ttf');
+}
+
+@font-face {
   font-family: 'AI';
   src: url(../assets/Fonts/BlackthornsDemoRegular-X0MZ.ttf);
 }
@@ -14,6 +19,11 @@
 @font-face {
   font-family: MontserratMedium;
   src: url(../assets/Fonts/Montserrat/Montserrat-Medium.ttf);
+}
+
+@font-face {
+  font-family: Corbel;
+  src: url(../assets/Fonts/Montserrat/corbel-light.ttf);
 }
 
 * {
@@ -29,6 +39,7 @@
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: fixed;
   padding: 10px 40px;
   z-index: 99;
@@ -46,11 +57,34 @@
 }
 
 .logo {
-  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
 .logo img{
-  width: 120px;
+  width: 80px;
+}
+
+.logo-inner{
+  margin-left: 10px;
+}
+
+.logo .logo-inner p:first-child{
+  font-family: Corbel;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.logo .logo-inner p:last-child{
+  font-family: Corbel;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.logo .logo-inner p:last-child span{
+  font-family: "Arial";
+  color: white;
+  font-size: 1.3rem;
 }
 
 .nav-items {
@@ -185,7 +219,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  background: rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.2);
   position: relative;
 }
 
@@ -530,6 +564,12 @@
   justify-content: center;
 }
 
+.footer a{
+  text-decoration: none;
+  color: white;
+  padding-bottom: 1px;
+  border-bottom: 2px solid white;
+}
 
 .footer-main {
   display: flex;
@@ -549,6 +589,10 @@
   font-family: MontserratLight;
   font-size: 1.5rem;
   margin-bottom: 20px;
+}
+
+.footer .logo .logo-inner p{
+  margin-bottom: 1px;
 }
 
 .contact-form {
@@ -990,8 +1034,20 @@
     }
 
     .logo img{
-      width: 100px;
+      width: 50px;
       padding-top: 5px;
+    }
+
+    .logo .logo-inner p:first-child{
+      font-size: 1rem;
+    }
+
+    .logo .logo-inner p:last-child{
+      font-size: 1.1rem;
+    }
+
+    .logo .logo-inner p:last-child span{
+      font-size: 1.1rem;
     }
 
     .footer p{
@@ -1076,6 +1132,12 @@
     }
     .service-header p{
         font-size: 1.3rem;
+    }
+    .footer .logo{
+      margin-top: 20px;
+    }
+    .footer .logo .logo-inner p{
+      text-align: left;
     }
 }
 
