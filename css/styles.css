@@ -255,7 +255,7 @@
   height: 100%;
 }
 .landing-page .carousel .carousel-item:nth-child(4) .carousel-bg {
-  background-image: url(../assets/Images/cloud.png);
+  background-image: url(../assets/Images/916.jpg);
   background-position: center;
   background-position-x: center;
   background-size: cover;
@@ -1198,7 +1198,11 @@
       background-size :cover ;
     }
     .landing-page .carousel .carousel-item:nth-child(4) .carousel-bg{
-      background-image: url(../assets/Images/clouds.png);
+      background-image: url(../assets/Images/916.jpg);
+      background-position-x: 40%;
+    }
+    .landing-page .carousel .carousel-item:nth-child(3) .carousel-bg{
+      background-position-x: 35%;
     }
 }
 
