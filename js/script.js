@@ -16,7 +16,6 @@ const footer = document.getElementById("footer");
 let mobileMenuOpen = false;
 
 const changeNav = (e) => {
-  console.log(spans);
   const links = navbar.querySelectorAll('.nav-item');
   const links2 = mobileMenu.querySelectorAll('.nav-item');
   links.forEach(link => link.style.color = 'white');

@@ -73,7 +73,7 @@
       }
     </style>
   </head>
-  <body onload="removeloader()">
+  <body onload="onloadHandle()">
     <script>
       function removeloader() {
         const loader = document.getElementById("loader");
@@ -81,6 +81,35 @@
           loader.style.display = "none";
         }, 3000);
       }
+      function onloadHandle() {
+        removeloader();
+          var slides = document.getElementsByClassName("carousel-item"),
+            addActive = function (slide) {
+              slide.classList.add("active");
+            },
+            removeActive = function (slide) {
+              slide.classList.remove("active");
+            };
+          addActive(slides[0]);
+
+          setInterval(function () {
+            for (var i = 0; i < slides.length; i++) {
+              if (i + 1 == slides.length) {
+                addActive(slides[0]);
+                slides[0].style.zIndex = 100;
+                setTimeout(removeActive, 350, slides[i]); //Doesn't be worked in IE-9
+                break;
+              }
+              if (slides[i].classList.contains("active")) {
+                slides[i].removeAttribute("style");
+                setTimeout(removeActive, 350, slides[i]); //Doesn't be worked in IE-9
+                addActive(slides[i + 1]);
+                break;
+              }
+            }
+          }, 4000);
+        };
+      
     </script>
     <div class="main">
       <div class="loader-container" id="loader">
@@ -161,13 +190,30 @@
         </div>
       </nav>
       <div class="landing-page" id="home">
-        <video
+        <!-- <video
           src="./assets/Images/landing3.mp4"
           autoplay
           muted
           preload
           loop
-        ></video>
+        ></video> -->
+        <div class="carousel">
+          <div class="carousel-item">
+            <div class="carousel-bg"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-bg"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-bg"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-bg"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-bg"></div>
+          </div>
+        </div>
         <div class="landing-content">
           <div class="landing-content-inner">
             <p>Our intelligence is what makes us human,</p>
